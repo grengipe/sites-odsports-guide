@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>od体育 · 持续关注的起点</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f6f8fc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* hero — 深色头图，带微妙纹理感 */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e2a4a 100%);
+            padding: 64px 24px 56px;
+            text-align: center;
+            color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 40%, rgba(99, 155, 255, 0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            padding: 8px 20px;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            color: #b9c7e0;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 主内容容器 */
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* 优势区 — 两列卡片 */
+        .advantage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin: 20px 0 48px;
+        }
+
+        .advantage-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 22px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            transition: all 0.2s ease;
+            border: 1px solid #eef2f6;
+        }
+
+        .advantage-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .advantage-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .advantage-card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .icon-placeholder {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            background: #e9eef5;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            background: #dfe8f3;
+            line-height: 32px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #1e3a5f;
+        }
+
+        /* 说明区 — 单段加重点 */
+        .explain-section {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 32px 28px;
+            margin: 32px 0 40px;
+            border: 1px solid #eef2f6;
+        }
+
+        .explain-section h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+
+        .explain-section p {
+            margin-bottom: 16px;
+            color: #334155;
+        }
+
+        .explain-section .highlight {
+            background: #f1f5f9;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border-left: 4px solid #3b6cb7;
+            font-size: 0.95rem;
+            color: #1e293b;
+        }
+
+        /* FAQ 摘要 — 紧凑折叠感 */
+        .faq-summary {
+            margin: 40px 0 32px;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+
+        .faq-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 18px 22px;
+            margin-bottom: 12px;
+            border: 1px solid #eef2f6;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #0f172a;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #475569;
+            font-size: 0.92rem;
+            padding-left: 4px;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid #dce2ea;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a {
+            color: #2c5282;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .footer-links a:hover {
+            border-bottom-color: #2c5282;
+        }
+
+        .footer-note {
+            color: #64748b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .advantage-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .explain-section {
+                padding: 24px 18px;
+            }
+            .faq-item {
+                padding: 14px 16px;
+            }
+            .footer-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* 强调色链接（出现在正文句子中） */
+        .inline-link {
+            color: #1e4a7a;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #aac3e0;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            color: #0b2b4f;
+            border-bottom-color: #0b2b4f;
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>再次遇见，依旧熟悉</h1>
+    <p class="sub">把便利收藏成习惯，每次回来都能快速进入状态</p>
+    <span class="tagline">持续关注 · 不打扰的陪伴</span>
+</section>
+
+<div class="container">
+
+    <!-- 优势区：从再次访问 / 收藏角度 -->
+    <div class="advantage-grid">
+        <div class="advantage-card">
+            <div class="icon-placeholder">📎</div>
+            <h3>随手收藏，下次直达</h3>
+            <p>把页面加入浏览器书签或收藏夹，再回来时不用重新查找。省下每次输入的时间，直接回到熟悉的位置。</p>
+        </div>
+        <div class="advantage-card">
+            <div class="icon-placeholder">🔄</div>
+            <h3>信息连贯，不断层</h3>
+            <p>保持关注后，你能看到动态更新与延续内容，不用每次都从头适应。节奏由你掌握。</p>
+        </div>
+        <div class="advantage-card">
+            <div class="icon-placeholder">🧭</div>
+            <h3>轻量提醒，不打扰</h3>
+            <p>没有频繁推送，只在需要时提供简洁指引。你主动回来，我们安静迎接。</p>
+        </div>
+        <div class="advantage-card">
+            <div class="icon-placeholder">⭐</div>
+            <h3>常看常新，保持连接</h3>
+            <p>网站内容会持续丰富，常回来看看总能有新发现。收藏一个地址，打开一扇窗。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：从 持续关注 角度切入 -->
+    <div class="explain-section">
+        <h2>为什么值得再次打开？</h2>
+        <p>我们理解，如今的信息流太快，大多数网站看过一次就淹没在标签页里。但有些地方值得你特意回来——不是因为它不停提醒你，而是因为它每次都能给你稳定、清爽的体验。就像一本常翻常新的杂志，放在书架固定的位置。</p>
+        <p>当你把 <a href="https://sites-odsports.com" class="inline-link">od体育</a> 加入收藏夹，就等于为自己留了一个安静的入口。不需要每次搜索，不需要回想域名，打开书签就能接着上次的节奏继续浏览。这种「第二次访问」的顺畅感，是我们用心维护的细节。</p>
+        <div class="highlight">
+            📌 小建议：把页面添加到浏览器书签栏，或直接保存到主屏幕（手机浏览器支持），下次打开只需一次点击。
+        </div>
+    </div>
+
+    <!-- FAQ 摘要（2–3 条自然问答） -->
+    <div class="faq-summary">
+        <h2>你可能想知道的</h2>
+        <div class="faq-item">
+            <span class="q">Q：我上次看到一半的内容，还能找到吗？</span>
+            <span class="a">网站内容按板块组织，常看的部分通常保持在固定位置。你也可以用浏览器书签记录特定页面，方便回头。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：需要注册或登录才能持续关注吗？</span>
+            <span class="a">不需要。直接浏览即可，收藏夹就是你的私人通行证。部分互动功能未来可能会开放，但看内容一直很自由。</span>
+        </div>
+        <div class="faq-item">
+            <span class="q">Q：网站内容会更新吗？多久一次？</span>
+            <span class="a">内容会不定期丰富和调整，没有固定时间表，但保持实用与整洁是原则。值得你隔段时间回来看看。</span>
+        </div>
+    </div>
+
+    <!-- 底部链接：自然嵌入 od体育 -->
+    <div class="footer-links">
+        <span>
+            <a href="https://sites-odsports.com">od体育</a> · 持续关注，从收藏开始
+        </span>
+        <span class="footer-note">© 2025 · 简洁 实用 不打扰</span>
+    </div>
+
+</div>
+
+</body>
+</html>
