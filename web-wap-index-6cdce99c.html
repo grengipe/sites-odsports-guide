@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竞彩知识库 · 查询与对照指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f9fafb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1e293b;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 8px 24px rgba(0,0,0,0.04);
+            padding: 2.8rem 2.2rem;
+        }
+
+        @media (max-width: 540px) {
+            body {
+                padding: 1rem 0.6rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+                border-radius: 20px;
+            }
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+            color: #0f172a;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #5b6a7f;
+            border-bottom: 1px solid #e9edf2;
+            padding-bottom: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 0.8rem 0;
+            color: #1e293b;
+            letter-spacing: -0.01em;
+        }
+
+        h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.4rem 0;
+            color: #334155;
+        }
+
+        p {
+            margin-bottom: 0.9rem;
+            color: #2c3e50;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #1d4ed8;
+            border-bottom-color: #1d4ed8;
+        }
+
+        /* 目录感卡片网格 —— 知识库入口式布局 */
+        .index-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.4rem 0 0.6rem 0;
+        }
+
+        @media (max-width: 480px) {
+            .index-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .dir-card {
+            background: #f6f8fb;
+            border-radius: 16px;
+            padding: 1.2rem 1rem 1rem 1rem;
+            transition: background 0.15s, box-shadow 0.15s;
+            border: 1px solid #edf1f7;
+        }
+
+        .dir-card:hover {
+            background: #f0f3f9;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .dir-card .card-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: #0f172a;
+        }
+
+        .dir-card .card-desc {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .dir-card .card-tag {
+            display: inline-block;
+            margin-top: 0.6rem;
+            background: #e3e9f2;
+            padding: 0.15rem 0.6rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #2c3e50;
+        }
+
+        /* 提示区 + 相关信息区 */
+        .info-block {
+            background: #f1f5fe;
+            border-left: 4px solid #2563eb;
+            border-radius: 8px;
+            padding: 1rem 1.2rem;
+            margin: 1.2rem 0 1.6rem 0;
+        }
+
+        .info-block p {
+            margin-bottom: 0.3rem;
+        }
+
+        .info-block .info-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            color: #1e40af;
+        }
+
+        .meta-note {
+            background: #f9f9fc;
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            margin: 1.6rem 0 0.4rem 0;
+            border: 1px solid #e4e9f0;
+            font-size: 0.9rem;
+        }
+
+        .faq-item {
+            margin: 0.8rem 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            color: #0f172a;
+        }
+
+        .faq-item p {
+            margin-bottom: 0.3rem;
+            color: #334155;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e4e9f0;
+            margin: 1.8rem 0 1.2rem 0;
+        }
+
+        .site-hint {
+            font-size: 0.9rem;
+            background: #f9fafc;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            margin-top: 0.6rem;
+            color: #2c3e50;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            font-size: 0.85rem;
+            color: #6b7a90;
+            text-align: center;
+            border-top: 1px solid #e9edf2;
+            padding-top: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero / 标题区 -->
+    <h1>竞彩知识库</h1>
+    <div class="subhead">日常查询 · 对照 · 延伸阅读 · 简明说明页</div>
+
+    <!-- 说明区：平实介绍 -->
+    <p>这是一个围绕竞彩常识整理的微型信息页，方便在手机或电脑上快速查阅基础概念、常用对照以及注意事项。内容源于公开资料与常见问答，力求简洁、准确、不夸大。所有信息仅供个人参考，不构成任何投注建议。</p>
+
+    <!-- 目录感布局：六个入口卡片 -->
+    <h2>📂 常用对照与查阅</h2>
+    <div class="index-grid">
+        <div class="dir-card">
+            <div class="card-title">玩法类型速览</div>
+            <div class="card-desc">胜平负 / 让球 / 比分 / 总进球 / 半全场 &nbsp;·&nbsp; 基础规则对照</div>
+            <span class="card-tag">对照</span>
+        </div>
+        <div class="dir-card">
+            <div class="card-title">奖金浮动说明</div>
+            <div class="card-desc">固定奖金与浮动奖金区别，以及赔付率的简单理解</div>
+            <span class="card-tag">概念</span>
+        </div>
+        <div class="dir-card">
+            <div class="card-title">让球与指数</div>
+            <div class="card-desc">让球数值、SP 值变化以及常见术语释义</div>
+            <span class="card-tag">延伸</span>
+        </div>
+        <div class="dir-card">
+            <div class="card-title">兑奖与有效期</div>
+            <div class="card-desc">纸质票与电子票兑奖期限、兑奖地点说明</div>
+            <span class="card-tag">须知</span>
+        </div>
+        <div class="dir-card">
+            <div class="card-title">赛事覆盖</div>
+            <div class="card-desc">足球、篮球主流联赛及杯赛的竞彩安排</div>
+            <span class="card-tag">范围</span>
+        </div>
+        <div class="dir-card">
+            <div class="card-title">异常情况处理</div>
+            <div class="card-desc">比赛延期、取消、腰斩时的结算原则</div>
+            <span class="card-tag">规则</span>
+        </div>
+    </div>
+
+    <!-- 提示区：突出提醒 -->
+    <div class="info-block">
+        <span class="info-label">📌 提示</span>
+        <p>查询时请以官方最新公告为准，赛程与赔率随时可能调整。对于竞彩相关的基础数据，<a href="https://web-wap-sporttery.com">竞彩网</a>提供了完整的实时行情和历史对照，适合日常比对与延伸阅读。建议将常用页面加入浏览器书签以便快速访问。</p>
+        <p style="margin-top:0.4rem;">无论是核对让球数值还是查看比赛状态，保持信息渠道的准确性很重要。</p>
+    </div>
+
+    <!-- 相关信息区：FAQ 摘要 + 附加说明 -->
+    <h2>❓ 常见疑问摘要</h2>
+
+    <div class="faq-item">
+        <strong>为什么同一场比赛的 SP 值会变化？</strong>
+        <p>SP 值受投注分布影响，随实时销量浮动。开奖时以最终公布值为准。不同平台展示有时差，以官方渠道为准。</p>
+    </div>
+    <div class="faq-item">
+        <strong>最多可以串几场？</strong>
+        <p>普通串关最多 8 场，混合串关需符合特定组合规则。具体可查玩法说明。</p>
+    </div>
+    <div class="faq-item">
+        <strong>让球数值是固定的吗？</strong>
+        <p>让球数会在开售前确定，但个别赛事可能因信息变更而调整，请关注页面标注。</p>
+    </div>
+
+    <!-- 额外延伸阅读区域 -->
+    <div class="meta-note">
+        <h3 style="margin-top:0; margin-bottom:0.2rem; font-size:1rem;">📖 延伸阅读方向</h3>
+        <ul style="list-style: none; padding-left: 0; color: #2c3e50; font-size:0.95rem;">
+            <li style="margin-bottom:0.2rem;">· 竞彩与数字彩的玩法差异</li>
+            <li style="margin-bottom:0.2rem;">· 常见投注策略与误区（非推荐）</li>
+            <li style="margin-bottom:0.2rem;">· 历史数据如何辅助分析（仅作参考）</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <!-- 自然嵌入第二个链接（句子中）且不破坏“竞彩网”文本 -->
+    <div class="site-hint">
+        💡 若需要查看完整的赛事列表、赔率变动或历史开奖，可以访问 <a href="https://web-wap-sporttery.com">竞彩网</a> 获取第一手数据。该网站也提供移动端适配的页面，方便日常快速浏览。
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        内容仅供参考 · 不构成任何投注引导 · 请理性对待
+    </div>
+</div>
+</body>
+</html>
